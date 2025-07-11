@@ -1,0 +1,39 @@
+interface Produto {
+   nome: string;
+   preco: number;
+   quantidade: number;
+}
+
+let produtosPrincipais: Produto[] = [
+    {nome: "Arroz Samba - 5KG", preco: 25, quantidade: 10 },
+    {nome: "Feijão Caríjo- 2KG", preco: 18, quantidade: 15 },
+    {nome: "Macarrão Semolão - 500G", preco: 9, quantidade: 12 },
+    {nome: "Queijo Canalha - 1KG", preco: 32, quantidade: 8 },
+    {nome: "Pão de Forma Kadooura - 500G", preco: 5, quantidade: 20 }
+]
+
+function calcularValorTotal(precoProduto: number, quantidadeEstoque: number): number {
+    return precoProduto * quantidadeEstoque
+}
+
+function verificaDisponibilidade(situacao: number): string {
+    if (situacao >= 1) {
+        return "Disponível"
+    }
+    else {
+        return "Indisponível"
+    }
+}
+
+for(let i = 0; i < produtosPrincipais.length; i++) {
+    let produto = produtosPrincipais[i];
+    let valorTotal = calcularValorTotal(produto.preco, produto.quantidade);
+    let status = verificaDisponibilidade(produto.quantidade);
+    console.log("=====================")
+    console.log("Produto: " + produto.nome)
+    console.log("Preço: " + produto.preco)
+    console.log("Quantidade: " + produto.quantidade)
+    console.log("Valor Total: R$" + valorTotal.toFixed(2))
+    console.log("Status: " + status)
+    console.log("=====================")
+}
