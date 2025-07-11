@@ -1,0 +1,36 @@
+interface Aluno {
+    nome: string;    // Nome do aluno (texto)
+    nota1: number;   // Primeira nota (número)
+    nota2: number;   // Segunda nota (número)
+}
+
+let alunos: Aluno[] = [
+    { nome: "João", nota1: 8, nota2: 6 },
+    { nome: "Fabio", nota1: 5, nota2: 10 },
+    { nome: "Tamar", nota1: 9, nota2: 8 },
+];
+
+function calcularMedia(n1: number, n2: number): number {
+    return (n1 + n2) / 2;  // Soma as notas e divide por 2
+}
+
+function verificarAprovacao(media: number): string {
+    if (media >= 7) {
+        return "Aprovado!";  // Se a média for maior ou igual a 7
+    } else {
+        return "Reprovado!"; // Se for menor que 7
+    }
+}
+
+for (let i = 0; i < alunos.length; i++) {
+    let aluno = alunos[i];  // Pegando o aluno atual com base no índice i
+    let media = calcularMedia(aluno.nota1, aluno.nota2);
+    let situacao = verificarAprovacao(media);
+
+    console.log("Aluno: " + aluno.nome);
+    console.log("Nota 1: " + aluno.nota1);
+    console.log("Nota 2: " + aluno.nota2);
+    console.log("Média: " + media);
+    console.log("Situação: " + situacao);
+    console.log("----------------------"); // Separador visual
+}
